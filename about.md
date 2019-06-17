@@ -4,15 +4,7 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
-
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+My name is Max, I'm an Italian guy and an IT System Engineer, I've started my career as a IT consultant finding from the beginning a special feeling with enterprise Unix OS and tecnologies, my first love was Oracle Solaris, I realiazed right away that this working experience would've been a bit more than a job.
+I've left the legacy IT since some time and I work as a Cloud Engineer, my current job consists of managing, supporting and monitoring Cloud infrastructures based on Openstack and developing ansible automations for deploying cloud based applications.
+I hate boring stuff and I enjoy to automate everything I can, I like to study and learn new things and test my skills taking certification exams.
+I'm also a maker, I build evil mechanisms with Arduino and Raspberry Pi.
