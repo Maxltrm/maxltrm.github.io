@@ -10,3 +10,9 @@ Print all lines between two patterns
 {% highlight bash %}
 sed -n "/Jun 20 10:46:19/,/Jun 20 10:46:20/p" messages
 {% endhighlight %}
+
+Print all lines except those between two patterns
+
+{% highlight bash %}
+sed "/Jun 20 10:46:19/,/Jun 20 10:46:20/d" messages
+{% endhighlight %}
