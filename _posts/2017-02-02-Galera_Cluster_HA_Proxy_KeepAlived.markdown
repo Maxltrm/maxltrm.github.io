@@ -7,7 +7,7 @@ categories: database how-to
 
 Galera cluster is a synchronous multi-master cluster for MySql.
 
-Here an example of implementation of a MySql Galera Cluster, balanced by HAProxy reachable from a VIP managed by KeepAlived.
+Here is an example of implementation of a MySql Galera Cluster, balanced by HAProxy reachable from a VIP managed by KeepAlived.
 
 My Environment:
 
@@ -53,7 +53,7 @@ Before starting, properly configure the hosts files or configure a DNS
     # mysql_secure_installation
     impostare una password per root: Es. verysurepwd
 
-#### [ALL] Creare uno user dedicato alla fase SST (State Transfer Snapshot)
+#### [ALL] Create a user dedicated to the SST (State Transfer Snapshot) phase
 
     # mysql -u root -p
     mysql> DELETE FROM mysql.user WHERE user='';
