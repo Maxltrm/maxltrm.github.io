@@ -294,61 +294,65 @@ The following parameter allows haproxy to bind the port on an IP not yet present
 
 * Read_only Benchmark
 
-    sysbench --db-driver=mysql --mysql-host=172.16.100.130 --mysql-user=admin --mysql-password=verysurepwd --mysql-db=foo --range_size=100 --table_size=10000 --tables=2 --threads=1 --events=0 --time=60 --rand-type=uniform /usr/share/sysbench/oltp_read_only.lua run
-    
-    SQL statistics:
-     queries performed:
-     read: 297710
-     write: 0
-     other: 42530
-     total: 340240
-     transactions: 21265 (354.40 per sec.)
-     queries: 340240 (5670.34 per sec.)
-     ignored errors: 0 (0.00 per sec.)
-     reconnects: 0 (0.00 per sec.)
-    
-    General statistics:
-     total time: 60.0015s
-     total number of events: 21265
-    
-    Latency (ms):
-     min: 2.09
-     avg: 2.82
-     max: 10.09
-     95th percentile: 3.43
-     sum: 59964.21
-    
-    Threads fairness:
-     events (avg/stddev): 21265.0000/0.00
-     execution time (avg/stddev): 59.9642/0.00
+{% highlight bash %}
+sysbench --db-driver=mysql --mysql-host=172.16.100.130 --mysql-user=admin --mysql-password=verysurepwd --mysql-db=foo --range_size=100 --table_size=10000 --tables=2 --threads=1 --events=0 --time=60 --rand-type=uniform /usr/share/sysbench/oltp_read_only.lua run
+
+SQL statistics:
+ queries performed:
+ read: 297710
+ write: 0
+ other: 42530
+ total: 340240
+ transactions: 21265 (354.40 per sec.)
+ queries: 340240 (5670.34 per sec.)
+ ignored errors: 0 (0.00 per sec.)
+ reconnects: 0 (0.00 per sec.)
+
+General statistics:
+ total time: 60.0015s
+ total number of events: 21265
+
+Latency (ms):
+ min: 2.09
+ avg: 2.82
+ max: 10.09
+ 95th percentile: 3.43
+ sum: 59964.21
+
+Threads fairness:
+ events (avg/stddev): 21265.0000/0.00
+ execution time (avg/stddev): 59.9642/0.00
+{% endhighlight %}
 
 * Write_only Benchmark
 
-    sysbench --db-driver=mysql --mysql-host=172.16.100.130 --mysql-user=admin --mysql-password=verysurepwd --mysql-db=foo --range_size=100 --table_size=10000 --tables=2 --threads=1 --events=0 --time=60 --rand-type=uniform /usr/share/sysbench/oltp_write_only.lua run
-    sysbench 1.0.9 (using system LuaJIT 2.0.4)
-    
-    SQL statistics:
-     queries performed:
-     read: 0
-     write: 145749
-     other: 126999
-     total: 272748
-     transactions: 45458 (757.59 per sec.)
-     queries: 272748 (4545.56 per sec.)
-     ignored errors: 0 (0.00 per sec.)
-     reconnects: 0 (0.00 per sec.)
-    
-    General statistics:
-     total time: 60.0012s
-     total number of events: 45458
-    
-    Latency (ms):
-     min: 0.93
-     avg: 1.32
-     max: 11.38
-     95th percentile: 1.58
-     sum: 59927.30
-    
-    Threads fairness:
-     events (avg/stddev): 45458.0000/0.00
-     execution time (avg/stddev): 59.9273/0.00
+{% highlight bash %}
+sysbench --db-driver=mysql --mysql-host=172.16.100.130 --mysql-user=admin --mysql-password=verysurepwd --mysql-db=foo --range_size=100 --table_size=10000 --tables=2 --threads=1 --events=0 --time=60 --rand-type=uniform /usr/share/sysbench/oltp_write_only.lua run
+sysbench 1.0.9 (using system LuaJIT 2.0.4)
+
+SQL statistics:
+ queries performed:
+ read: 0
+ write: 145749
+ other: 126999
+ total: 272748
+ transactions: 45458 (757.59 per sec.)
+ queries: 272748 (4545.56 per sec.)
+ ignored errors: 0 (0.00 per sec.)
+ reconnects: 0 (0.00 per sec.)
+
+General statistics:
+ total time: 60.0012s
+ total number of events: 45458
+
+Latency (ms):
+ min: 0.93
+ avg: 1.32
+ max: 11.38
+ 95th percentile: 1.58
+ sum: 59927.30
+
+Threads fairness:
+ events (avg/stddev): 45458.0000/0.00
+ execution time (avg/stddev): 59.9273/0.00
+{% endhighlight %}
