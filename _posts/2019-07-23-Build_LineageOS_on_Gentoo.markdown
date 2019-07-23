@@ -24,7 +24,7 @@ default/linux/amd64/17.1/desktop/plasma/systemd
 #### Define packages use flags 
 
 ```bash
-echo "sys-libs/ncurses tinfo abi_x86_32" >> /etc/portage/package.use/ncurses
+echo "sys-libs/ncurses tinfo abi_x86_32 -gpm" >> /etc/portage/package.use/ncurses
 echo "sys-libs/readline abi_x86_32" >> /etc/portage/package.use/readline
 echo "dev-java/icedtea:8 headless-awt -alsa -cups -gtk" >> /etc/portage/package.use/icedtea
 ```
@@ -39,29 +39,31 @@ use flags meaning:
 #### Create a new set with needed packages
 
 ```bash
-echo "app-arch/lz4 
-> app-arch/lzop 
-> media-gfx/imagemagick 
-> media-gfx/pngcrush 
-> dev-util/android-tools
-> sys-devel/bc
-> net-misc/curl
-> dev-vcs/git
-> media-gfx/imagemagick
-> sys-libs/ncurses
-> sys-libs/readline
-> sys-libs/zlib
-> app-arch/lz4
-> media-libs/libsdl
-> x11-libs/wxGTK:3.0
-> app-arch/lzop
-> media-gfx/pngcrush
-> sys-process/schedtool
-> sys-fs/squashfs-tools
-> app-arch/zip
-> dev-java/icedtea:8" | tee /etc/portage/sets/lineage_build_set
+mkdir /etc/portage/sets
 
-emerage --ask @lineage_build_set
+echo "app-arch/lz4
+app-arch/lzop 
+media-gfx/imagemagick 
+media-gfx/pngcrush 
+dev-util/android-tools
+sys-devel/bc
+net-misc/curl
+dev-vcs/git
+media-gfx/imagemagick
+sys-libs/ncurses
+sys-libs/readline
+sys-libs/zlib
+app-arch/lz4
+media-libs/libsdl
+x11-libs/wxGTK:3.0
+app-arch/lzop
+media-gfx/pngcrush
+sys-process/schedtool
+sys-fs/squashfs-tools
+app-arch/zip
+dev-java/icedtea:8" | tee /etc/portage/sets/lineage_build_set
+
+emerge --ask @lineage_build_set
 ```
 
 #### Set icedtea-8 and python2.7
@@ -125,7 +127,9 @@ breakfast shieldtablet
 
 To extract the proprietary blobs you need to have an installed LineageOS on the device otherwise it's possible to extract the blobs from a LineageOS zip file following this guide:
 
+```
 https://wiki.lineageos.org/extracting_blobs_from_zips.html
+```
 
 #### Turn on ccache caching
 
