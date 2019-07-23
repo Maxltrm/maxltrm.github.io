@@ -137,7 +137,7 @@ export CCACHE_COMPRESS=1
 
 #### Configure jack
 
-Jack is an Android toolchain that compile Java source into Android dex bytecode, if not configured properlly it can fail and run out of memory.
+Jack is an Android toolchain that compiles Java source into Android dex bytecode, if not configured properly it can fail and run out of memory.
 
 ```bash
 export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G"
