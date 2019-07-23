@@ -99,7 +99,14 @@ breakfast shieldtablet
 
 #### Extract propietary blobs:
 
-To extract the proprietary blobs you need to have an installed LineageOS on the device otherwise it's possible to extract the blobs from a LineageOS zip file following this guide:
+To extract the proprietary blobs you need to have an installed LineageOS on the device:
+
+```bash
+~/android/lineage/device/nvidia/shieldtablet 
+./extract-files.sh
+```
+
+otherwise it's possible to extract the blobs from a LineageOS zip file following this guide:
 
 ```
 https://wiki.lineageos.org/extracting_blobs_from_zips.html
