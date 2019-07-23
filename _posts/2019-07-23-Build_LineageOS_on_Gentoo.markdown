@@ -135,6 +135,12 @@ croot
 brunch shieldtablet
 ```
 
+#### Install your rom from TWRP or sideload
+
+```bash
+adb sideload ~/android/lineage/out/target/product/shieldtablet/lineage-15.1-20190723-UNOFFICIAL-shieldtablet.zip
+```
+
 ### Useful links
 [Unlock bootloader](http://developer.download.nvidia.com/mobile/shield/ROM/ST8K1/0_0_0_Factory/HowTo-Flash-Recovery-Image.txt){:target="_blank"}
 
