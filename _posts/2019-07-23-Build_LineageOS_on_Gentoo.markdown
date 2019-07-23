@@ -36,34 +36,8 @@ use flags meaning:
 
 #### Install needed packages
 
-#### Create a new set with needed packages
-
 ```bash
-mkdir /etc/portage/sets
-
-echo "app-arch/lz4
-app-arch/lzop 
-media-gfx/imagemagick 
-media-gfx/pngcrush 
-dev-util/android-tools
-sys-devel/bc
-net-misc/curl
-dev-vcs/git
-media-gfx/imagemagick
-sys-libs/ncurses
-sys-libs/readline
-sys-libs/zlib
-app-arch/lz4
-media-libs/libsdl
-x11-libs/wxGTK:3.0
-app-arch/lzop
-media-gfx/pngcrush
-sys-process/schedtool
-sys-fs/squashfs-tools
-app-arch/zip
-dev-java/icedtea:8" | tee /etc/portage/sets/lineage_build_set
-
-emerge --ask @lineage_build_set
+emerge -av app-arch/lz4 app-arch/lzop  media-gfx/imagemagick  media-gfx/pngcrush  dev-util/android-tools sys-devel/bc net-misc/curl dev-vcs/git media-gfx/imagemagick sys-libs/ncurses sys-libs/readline sys-libs/zlib app-arch/lz4 media-libs/libsdl x11-libs/wxGTK:3.0 app-arch/lzop media-gfx/pngcrush sys-process/schedtool sys-fs/squashfs-tools app-arch/zip dev-java/icedtea:9
 ```
 
 #### Set icedtea-8 and python2.7
