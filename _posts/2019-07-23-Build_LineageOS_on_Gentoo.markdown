@@ -144,6 +144,8 @@ adb sideload ~/android/lineage/out/target/product/shieldtablet/lineage-15.1-2019
 ### Useful links
 [Unlock bootloader](http://developer.download.nvidia.com/mobile/shield/ROM/ST8K1/0_0_0_Factory/HowTo-Flash-Recovery-Image.txt){:target="_blank"}
 
+[Open Source + Binary driver release](http://nv-tegra.nvidia.com/gitweb/?p=manifest/android/binary.git;a=blob_plain;f=README;hb=rel-24-uda-r1.2-partner){:target="_blank"}
+
 [TWRP img download](https://eu.dl.twrp.me/shieldtablet/){:target="_blank"}
 
 [SuperSU](http://www.supersu.com/download){:target="_blank"}
