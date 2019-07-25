@@ -120,3 +120,41 @@ ip netns exec <namespace_name> pingÂ 172.24.4.11
 ssh from namespace
 ip netns exec <namespace_name> ssh -i /root/.ssh/id_rsa cirros@172.24.4.11
 {% endhighlight %}
+
+### Managing Instances
+
+#### Show informations for a specific vm
+
+```
+$ openstack server show <vm_name>
+```
+
+#### Suspend vm
+
+```
+$ openstack server suspend <vm_name>
+```
+
+#### Resume vm
+
+```
+$ openstack server resume <vm_name>
+```
+
+#### Pause vm
+
+```
+$ openstack server pause <vm_name>
+```
+
+#### Unpause vm
+
+```
+$ openstack server unpause <vm_name>
+```
+
+#### Resize vm
+
+```
+$ openstack server resize --flavor <flavor_name> <vm_name>
+```
