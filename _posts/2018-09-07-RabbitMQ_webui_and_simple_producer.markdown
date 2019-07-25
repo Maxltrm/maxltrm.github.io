@@ -5,8 +5,8 @@ date:   2018-09-07 16:09:54 +0200
 categories: queues notes
 ---
 
-RabbitMQ 3.6.10
-Erlang 5.10.4
+* RabbitMQ 3.6.10
+* Erlang 5.10.4
 
 #### Centos Installation
 
@@ -87,4 +87,6 @@ body='Un altro messaggio')
 
 #### Show queues
 
+```
 rabbitmqctl list_queues
+```
