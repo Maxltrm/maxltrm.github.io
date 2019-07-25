@@ -7,7 +7,7 @@ categories: linux notes
 
 BIND9 is the most used Domain Name System in UNIX environments, a DNS server contains a database of IP addresses and the associated hostnames.
 
-A DNS permit to:
+A DNS permits to:
 
 * Resolve an hostname in an IP address - lookup
 * Resolve an IP address in an hostname – reverse lookup
