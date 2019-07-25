@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Install IPA Server"
+title:  "Install freeIPA Server"
 date:   2016-12-11 19:09:54 +0200
 categories: linux notes
 ---
