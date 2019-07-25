@@ -8,7 +8,7 @@ categories: queues notes
 * RabbitMQ 3.6.10
 * Erlang 5.10.4
 
-#### Centos Installation
+#### Install RabbitMQ on centos
 
 ```
 # yum update -y
