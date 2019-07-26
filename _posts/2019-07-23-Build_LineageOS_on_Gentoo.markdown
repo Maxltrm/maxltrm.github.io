@@ -27,6 +27,8 @@ default/linux/amd64/17.1/desktop/plasma/systemd
 echo "sys-libs/ncurses tinfo abi_x86_32 -gpm" >> /etc/portage/package.use/ncurses
 echo "sys-libs/readline abi_x86_32" >> /etc/portage/package.use/readline
 echo "dev-java/icedtea:8 headless-awt -alsa -cups -gtk" >> /etc/portage/package.use/icedtea
+echo "sys-libs/zlib abi_x86_32" >> /etc/portage/package.use/zlib
+echo "app-arch/lz4 abi_x86_32" >> /etc/portage/package.use/lz4
 ```
 
 use flags meaning:
@@ -37,7 +39,7 @@ use flags meaning:
 #### Install needed packages
 
 ```bash
-emerge -av app-arch/lz4 app-arch/lzop  media-gfx/imagemagick  media-gfx/pngcrush  dev-util/android-tools sys-devel/bc net-misc/curl dev-vcs/git media-gfx/imagemagick sys-libs/ncurses sys-libs/readline sys-libs/zlib app-arch/lz4 media-libs/libsdl x11-libs/wxGTK:3.0 app-arch/lzop media-gfx/pngcrush sys-process/schedtool sys-fs/squashfs-tools app-arch/zip dev-java/icedtea:9
+emerge -av app-arch/lz4 app-arch/lzop  media-gfx/imagemagick  media-gfx/pngcrush  dev-util/android-tools sys-devel/bc net-misc/curl dev-vcs/git media-gfx/imagemagick sys-libs/ncurses sys-libs/readline sys-libs/zlib app-arch/lz4 media-libs/libsdl x11-libs/wxGTK:3.0 app-arch/lzop media-gfx/pngcrush sys-process/schedtool sys-fs/squashfs-tools app-arch/zip dev-java/icedtea:8
 ```
 
 #### Set icedtea-8 and python2.7
