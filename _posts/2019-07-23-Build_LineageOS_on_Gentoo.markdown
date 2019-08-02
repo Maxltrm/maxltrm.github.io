@@ -39,7 +39,7 @@ use flags meaning:
 #### Install needed packages
 
 ```bash
-emerge -av app-arch/lz4 app-arch/lzop media-gfx/imagemagick media-gfx/pngcrush dev-util/android-tools dev-util/android-sdk-update-manager sys-devel/bc net-misc/curl dev-vcs/git media-gfx/imagemagick sys-libs/ncurses:0 sys-libs/ncurses:5 sys-libs/readline sys-libs/zlib app-arch/lz4 media-libs/libsdl x11-libs/wxGTK:3.0 app-arch/lzop media-gfx/pngcrush sys-process/schedtool sys-fs/squashfs-tools app-arch/zip dev-java/icedtea:8
+emerge -av app-arch/lz4 app-arch/lzop media-gfx/imagemagick media-gfx/pngcrush dev-util/android-tools dev-util/android-sdk-update-manager sys-devel/bc net-misc/curl dev-vcs/git media-gfx/imagemagick sys-libs/ncurses:0 sys-libs/ncurses:5 sys-libs/readline sys-libs/zlib app-arch/lz4 media-libs/libsdl x11-libs/wxGTK:3.0 app-arch/lzop media-gfx/pngcrush sys-process/schedtool sys-fs/squashfs-tools app-arch/zip dev-java/icedtea:8 dev-util/ccache
 ```
 
 #### Set icedtea-8 and python2.7
