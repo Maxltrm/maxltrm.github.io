@@ -152,7 +152,7 @@ dhcp_end = 192.168.24.24
 inspection_iprange = 192.168.24.100,192.168.24.120
 ```
 
-#### Install the undercloud
+2. Run the installation
 
 ```
 stack@director ~]$ openstack undercloud install
