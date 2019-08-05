@@ -28,30 +28,31 @@ Since the procedure of installation it's quite long I'll split it in some parts.
 #### [KVM-Host] Install VirtualBMC on a Python virtualenv
 
 ```
-virtualenv -p /usr/bin/python2.7 ooo-poc-venv
-source ooo-poc-venv/bin/activate
+kvm-host ~ # virtualenv -p /usr/bin/python2.7 ooo-poc-venv
 
-pip install virtualbmc
+kvm-host ~ # source ooo-poc-venv/bin/activate
+
+(ooo-poc-venv) kvm-host ~ # pip install virtualbmc
 ```
 
 #### [KVM-Host] Configure vmbc
 
 ```
-vbmc add Controller-0 --port 6230 --username admin --password ooo-poc
-vbmc add Controller-1 --port 6231 --username admin --password ooo-poc
-vbmc add Controller-2 --port 6232 --username admin --password ooo-poc
+(ooo-poc-venv) kvm-host ~ # vbmc add Controller-0 --port 6230 --username admin --password ooo-poc
+(ooo-poc-venv) kvm-host ~ # vbmc add Controller-1 --port 6231 --username admin --password ooo-poc
+(ooo-poc-venv) kvm-host ~ # vbmc add Controller-2 --port 6232 --username admin --password ooo-poc
 
-vbmc add Compute-0 --port 6233 --username admin --password ooo-poc
-vbmc add Compute-1 --port 6234 --username admin --password ooo-poc
-vbmc add Compute-2 --port 6235 --username admin --password ooo-poc
+(ooo-poc-venv) kvm-host ~ # vbmc add Compute-0 --port 6233 --username admin --password ooo-poc
+(ooo-poc-venv) kvm-host ~ # vbmc add Compute-1 --port 6234 --username admin --password ooo-poc
+(ooo-poc-venv) kvm-host ~ # vbmc add Compute-2 --port 6235 --username admin --password ooo-poc
 
-vbmc start Controller-0
-vbmc start Controller-1
-vbmc start Controller-2
+(ooo-poc-venv) kvm-host ~ # vbmc start Controller-0
+(ooo-poc-venv) kvm-host ~ # vbmc start Controller-1
+(ooo-poc-venv) kvm-host ~ # vbmc start Controller-2
 
-vbmc start Compute-0
-vbmc start Compute-1
-vbmc start Compute-2
+(ooo-poc-venv) kvm-host ~ # vbmc start Compute-0
+(ooo-poc-venv) kvm-host ~ # vbmc start Compute-1
+(ooo-poc-venv) kvm-host ~ # vbmc start Compute-2
 
 (ooo-poc-venv) kvm-host ~ # vbmc list
 +--------------+---------+---------+------+
@@ -119,7 +120,7 @@ sudo tripleo-repos -b queens current
 sudo yum install -y python-tripleoclient
 ```
 
-#### Install undercloud
+#### Install the undercloud
 
 1. Compile undercloud configuration file
 
@@ -180,17 +181,23 @@ secured.
 #### Build overcloud images
 
 ```
-export DIB_YUM_REPO_CONF="/etc/yum.repos.d/delorean*"
+$ source stackrc
 
-openstack overcloud image build
+(undercloud) [stack@director ~]$ export DIB_YUM_REPO_CONF="/etc/yum.repos.d/delorean*"
+
+(undercloud) [stack@director ~]$ openstack overcloud image build
+
+[...]
+[...]
+[...]
+
 2019-08-03 11:22:48.350 | Build completed successfully
 ```
 
-
-#### Upload image in undercloud glance
+#### Upload the images in the undercloud glance
 
 ```
-openstack overcloud image upload
+(undercloud) [stack@director ~]$ openstack overcloud image upload
 
 (undercloud) [stack@director ~]$ openstack image list
 +--------------------------------------+------------------------+--------+
