@@ -84,14 +84,16 @@ Chassis Power is on
 * Update the system and create stack user
 
 ```
-yum update -y
-useradd stack
-passwd stack
-echo "stack ALL=(root) NOPASSWD:ALL" >> /etc/sudoers.d/stack
-chmod 0440 /etc/sudoers.d/stack
+# yum update -y
+# useradd stack
+# passwd stack
+# echo "stack ALL=(root) NOPASSWD:ALL" >> /etc/sudoers.d/stack
+# chmod 0440 /etc/sudoers.d/stack
 
-sudo hostnamectl set-hostname director.lab.lan
-sudo hostnamectl set-hostname --transient director.lab.lan
+# su - stack
+
+[stack@director ~]$ sudo hostnamectl set-hostname director.lab.lan
+[stack@director ~]$ sudo hostnamectl set-hostname --transient director.lab.lan
 ```
 
 * Configure hosts file
@@ -105,19 +107,19 @@ An entry for the systems FQDN hostname is also needed in /etc/hosts.
 * Install python2-tripleo-repos
 
 ```
-sudo yum install -y https://trunk.rdoproject.org/centos7/current/python2-tripleo-repos-0.0.1-0.20190724014728.1cf6e0b.el7.noarch.rpm
+[stack@director ~]$ sudo yum install -y https://trunk.rdoproject.org/centos7/current/python2-tripleo-repos-0.0.1-0.20190724014728.1cf6e0b.el7.noarch.rpm
 ```
 
 * Enable queens repositories
 
 ```
-sudo tripleo-repos -b queens current
+[stack@director ~]$ sudo tripleo-repos -b queens current
 ```
 
 * Install tripleo client
 
 ```
-sudo yum install -y python-tripleoclient
+[stack@director ~]$ sudo yum install -y python-tripleoclient
 ```
 
 #### Install the undercloud
@@ -125,7 +127,7 @@ sudo yum install -y python-tripleoclient
 1. Compile undercloud configuration file
 
 ```
-cp /usr/share/instack-undercloud/undercloud.conf.sample ~/undercloud.conf
+[stack@director ~]$ cp /usr/share/instack-undercloud/undercloud.conf.sample ~/undercloud.conf
 ```
 
 This is my configuration file
