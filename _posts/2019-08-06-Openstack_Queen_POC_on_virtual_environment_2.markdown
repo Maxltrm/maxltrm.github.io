@@ -5,7 +5,7 @@ date:   2019-08-04 20:09:54 +0200
 categories: Openstack how-to
 ---
 
-### Part 2 - Import and introspect baremetal node
+### Part 2 - Import and introspect baremetal nodes
 
 Official TripleO install guide [link](https://docs.openstack.org/tripleo-docs/latest/install/index.html){:target="_blank"}
 
