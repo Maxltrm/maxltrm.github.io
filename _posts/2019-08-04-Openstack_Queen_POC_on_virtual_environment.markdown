@@ -1,15 +1,17 @@
 ---
 layout: post
-title:  "Openstack Queens POC on virtual environment with VirtualBMC - Part 1"
+title:  "Openstack Queens POC on virtual env with VirtualBMC - Part 1"
 date:   2019-08-04 20:09:54 +0200
 categories: Openstack how-to
 ---
 
-With the ending (maybe for now, maybe forever) of my experience with Openstack I want to write this memorandum to establish and mantain some concepts about Openstack and the installation with triple-O, but since I haven't a private datacenter (for now), I'll simulate a physical environment with the help of VirtualBMC.
+With the ending of my experience with Openstack I want to write this memorandum to establish and mantain some concepts about Openstack and the installation with triple-O, but since I haven't a private datacenter (for now), I'll simulate a physical environment with the help of VirtualBMC.
 
 Since the procedure of installation it's quite long I'll split it in some parts.
 
 ### Part 1 - Install the Undercloud
+
+Official TripleO install guide [link](https://docs.openstack.org/tripleo-docs/latest/install/index.html){:target="_blank"}
 
 #### Network Isolation diagram
 
@@ -124,7 +126,7 @@ An entry for the systems FQDN hostname is also needed in /etc/hosts.
 
 #### Install the undercloud
 
-1. Compile undercloud configuration file
+* Compile undercloud configuration file
 
 ```
 [stack@director ~]$ cp /usr/share/instack-undercloud/undercloud.conf.sample ~/undercloud.conf
@@ -155,7 +157,7 @@ dhcp_end = 192.168.24.24
 inspection_iprange = 192.168.24.100,192.168.24.120
 ```
 
-2. Run the installation
+* Run the installation
 
 ```
 stack@director ~]$ openstack undercloud install
