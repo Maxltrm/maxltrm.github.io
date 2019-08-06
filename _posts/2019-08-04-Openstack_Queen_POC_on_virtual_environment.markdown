@@ -214,5 +214,4 @@ $ source stackrc
 | 9e2ccfbf-fbfa-44e5-bcce-535a2c773653 | overcloud-full-vmlinuz | active |
 +--------------------------------------+------------------------+--------+
 ```
-
-Next step: Import and introspect baremetal node
+Next step: [Import and introspect baremetal node]({{ site.baseurl }}{% post_url 2019-08-06-Openstack_Queen_POC_on_virtual_environment_2 %})

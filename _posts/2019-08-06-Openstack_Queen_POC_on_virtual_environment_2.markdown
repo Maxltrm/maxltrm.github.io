@@ -18,6 +18,8 @@ Official TripleO install guide [link](https://docs.openstack.org/tripleo-docs/la
 
 #### [Director] Create instackenv.json
 
+It's a JSON file describing your Overcloud baremetal nodes, you need to insert the mac-address of the NICs on the Provisioning network and the VirtualBMC ipmi ports
+
 ```
 {
     "nodes":[
