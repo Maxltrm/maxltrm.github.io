@@ -217,7 +217,9 @@ pkill -P 3521
 #### Load average
 
 Provided by commands top, uptime, w
+
 The three values indicate the load of last 1, 5 and 15 minutes
+
 Divide the value by the number of logical CPUs. A number less than 1 indicates a satisfactory use of resources and a minimum waiting time; a value greater than 1 indicates a saturation of resources and prolonged waiting times (disk I / O and network).
 
 ```
@@ -240,7 +242,9 @@ PID USER PR NI VIRT RES SHR S %CPU %MEM TIME+ COMMAND
 ```
 
 VIRT  Virtual memory, all the memory used by the process, including resident set, shared libraries, and each mapped or swapped memory page (VSZ of the ps command)
+
 RES   Resident memory, the physical memory used by the process, including each resident shared object (RSS of the ps command)
+
 TIME  total time since the process started; could include the cumulative time of previous children processes.
 
 #### Nice and renice
