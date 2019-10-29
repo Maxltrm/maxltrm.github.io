@@ -150,7 +150,7 @@ Only match processes whose parent process ID is listed.
 pkill -P PPID command_pattern
 ```
 
-#### Send a SIGTERM to process residenti in a tty terminal
+#### Send a SIGTERM to process resident in a tty terminal
 
 ```
 pkill -t terminal_name -u UID command_pattern
@@ -166,12 +166,15 @@ root    tty1                         11:51             3:00   0.00s      0.00s  
 root   pts/0 192.168.56.1 Mon15          4.00s  0.56s     0.01s      w
 ```
 
-pts/n   da ambiente grafico  (pseudo-terminal)
+pts/n   pseudo-terminal
+
 ttyn    system-console
 
-TTY + FROM   per determinare user location
-JCPU  risorse cpu della sessione compresi processi in background
-PCPU  risorse cpu processi in foreground
+TTY + FROM   To determine user location
+
+JCPU  session CPU resources including background processes
+
+PCPU  CPU resources foreground processes
 
 ```
 pgrep  -l  -u  ldapuser01      ( -l, --list-name     List the process name as well as the process ID)
@@ -186,20 +189,30 @@ w -u ldapuser01
 USER TTY FROM LOGIN@ IDLE JCPU PCPU WHAT
 ldapuser pts/1 192.168.56.1 12:41 20.00s 0.04s 0.04s -bash
 ```
-pkill -t  pts/1        (mantiene la bash login shell)
 
-pkill -SIGTERM -t  pts/1        ( -t  terminal.  Mantiene il processo bash, session leader in questo caso)
+Doesn't kill the bash process
+```
+pkill -SIGTERM -t pts/1
+```
 
-pkill -SIGTERM -SIGKILL -t  pts/1   (Ammazza anche il processo bash)
+kill also the bash process
+ 
+```
+pkill -SIGTERM -SIGKILL -t pts/1
+```
 
-pstree -p ldapuser01        ( -p Show PIDs )
+```
+pstree -p ldapuser01
 
 bash(3521)---pstree(3544)
 --sleep(3541)
 --sleep(3542)
 --sleep(3543)
-
-pkill -P   3521          (-P Only match processes whose parent process ID is listed.  Mantiene il Parent process 3521)
+```
+-P Only match processes whose parent process ID is listed
+```
+pkill -P 3521
+```
 
 #### Load average
 
@@ -230,7 +243,7 @@ VIRT  Virtual memory, all the memory used by the process, including resident set
 RES   Resident memory, the physical memory used by the process, including each resident shared object (RSS of the ps command)
 TIME  total time since the process started; could include the cumulative time of previous children processes.
 
-#### Nice e renice
+#### Nice and renice
 
 The nice levels can be seen in various ways  (top, ps, gnome-system-monitor).
 With the top command, the NI columns (nice, between -20 and 19) and PR (priority, between 0 and 39) show values related to the nice.
@@ -264,11 +277,6 @@ The scheduler policy can be viewed by requesting the cls field in the ps command
 ```
 ps axo pid,com,nice,cls 
 ```
-
-TS        processo gira con SCHED_NORMAL e usa nice levels
-
-Tutto il resto utilizza una scheduler policy differente.
-
 When a process is launched, it normally inherits the nice level from the parent process. A process launched by the command line then inherits the nice level of the shell from which it is launched, usually nice level 0.
 
 To run a process specifying the nice level use the command nice:
