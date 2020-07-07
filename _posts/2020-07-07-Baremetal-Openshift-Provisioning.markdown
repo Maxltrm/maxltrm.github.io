@@ -7,7 +7,7 @@ categories: Openshift
 
 Since I've started exploring OpenShift I built a home lab, here are some notes about the installation of my OpenShift lab environment.
 
-Even though I'm running the nodes cluster on oVirt, I've followed the instructions for the baremetal provisioning because I wanted to go thourgh all the teps, so this is a baremetal UPI deployment.
+Even though I'm running the nodes cluster on oVirt, I've followed the instructions for the baremetal provisioning because I wanted to go thourgh all the steps, so this is a baremetal UPI deployment.
 
 The cluster nodes are living on an isolated network, there is a pfsense firewall between my clients network and the cluster private network, on that pfsense I've reserved a static IP for each vm and then I've configured a 1:1 NAT to reach the ocp-utils vm from my clients.
 
@@ -489,7 +489,7 @@ certificatesigningrequest.certificates.k8s.io/csr-txmq2 approved
 
 #### Verify that all the nodes are Ready
 
-iusually a node is NotReady if it cannot communicate with the control plane
+usually a node is NotReady if it cannot communicate with the control plane
 
 ```
 [root@ocp-utils ~]# oc get nodes
