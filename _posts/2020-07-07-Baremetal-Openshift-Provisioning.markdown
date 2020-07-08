@@ -313,7 +313,7 @@ sshKey: your ssh public key
 
 I attempted the installation a number of times so I wrote a simple playbook to automate the manifest and ignition creation when I had to start from scratch
 
-{% highlight %}
+{% highlight python %}
 {% raw %}
 ---
 - hosts: localhost
