@@ -313,6 +313,7 @@ sshKey: your ssh public key
 
 I attempted the installation a number of times so I wrote a simple playbook to automate the manifest and ignition creation when I had to start from scratch
 
+{% highlight %}
 {% raw %}
 ---
 - hosts: localhost
@@ -394,6 +395,7 @@ I attempted the installation a number of times so I wrote a simple playbook to a
     - name: Set permissions
       shell: "chmod -R 777 {{ webserver_dir }}"
 {% endraw %}
+{% endhighlight %}
 
 #### Bootstrap box initialization
 
