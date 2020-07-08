@@ -407,6 +407,8 @@ I attempted the installation a number of times so I wrote a simple playbook to a
 coreos.inst=yes coreos.inst.install_dev=sda coreos.inst.image_url=http://192.168.100.200:8080/ocp/rhcos.raw.gz coreos.inst.ignition_url=http://192.168.100.200:8080/ocp/bootstrap.ign
 ```
 
+Once the API and the config server are up go ahead with the initialization of the master nodes.
+
 #### Masters boxes initialization
 
 1. boot the box from the rhcos installation iso
