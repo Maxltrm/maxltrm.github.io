@@ -319,7 +319,7 @@ I attempted the installation a number of times so I wrote a simple playbook to a
   connection: local
   vars:
     install_dir: "/root/install_dir"
-    webserver_dir: "/var/www/html/ocp"
+    webserver_dir: "/var/www/html/okd4"
     bin_path: "/usr/local/bin"
     version: 4.3.5
   tasks:
