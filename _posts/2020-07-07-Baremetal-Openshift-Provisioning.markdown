@@ -226,7 +226,7 @@ frontend ocp_k8s_api_fe
     option tcplog
 
 backend ocp_k8s_api_be
-    balance source
+    balance roundrobin
     mode tcp
     server      ocp-bootstrap 192.168.100.201:6443 check
     server      ocp-control-plane-1 192.168.100.202:6443 check
@@ -240,7 +240,7 @@ frontend ocp_machine_config_server_fe
     option tcplog
 
 backend ocp_machine_config_server_be
-    balance source
+    balance roundrobin
     mode tcp
     server      ocp-bootstrap 192.168.100.201:22623 check
     server      ocp-control-plane-1 192.168.100.202:22623 check
@@ -254,7 +254,7 @@ frontend ocp_http_ingress_traffic_fe
     option tcplog
 
 backend ocp_http_ingress_traffic_be
-    balance source
+    balance roundrobin
     mode tcp
     server      ocp-compute-1 192.168.100.205:80 check
     server      ocp-compute-2 192.168.100.206:80 check
@@ -266,7 +266,7 @@ frontend ocp_https_ingress_traffic_fe
     option tcplog
 
 backend ocp_https_ingress_traffic_be
-    balance source
+    balance roundrobin
     mode tcp
     server      ocp-compute-1 192.168.100.205:443 check
     server      ocp-compute-2 192.168.100.206:443 check
