@@ -290,7 +290,7 @@ compute:
 controlPlane:
   hyperthreading: Enabled
   name: master
-  replicas: 2
+  replicas: 3
 
 networking:
   clusterNetwork:
