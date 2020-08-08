@@ -399,7 +399,7 @@ I attempted the installation a number of times so I wrote a simple playbook to a
 
 #### Bootstrap box initialization
 
-1. boot the box from the rhcos installation iso
+1. boot the box from the rhcos installation [iso](https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/)
 2. Press the tab button to append kernel commands
 3. Append:
 
