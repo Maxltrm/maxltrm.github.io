@@ -389,7 +389,7 @@ I attempted the installation a number of times so I wrote a simple playbook to a
 
     - name: Download RHCOS
       get_url:
-        url: https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/latest/latest/rhcos-4.4.3-x86_64-metal.x86_64.raw.gz
+        url: https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.5/4.5.2/rhcos-metal.x86_64.raw.gz
         dest: "{{ webserver_dir }}/rhcos.raw.gz"
 
     - name: Set permissions
@@ -406,6 +406,8 @@ I attempted the installation a number of times so I wrote a simple playbook to a
 ```
 coreos.inst=yes coreos.inst.install_dev=sda coreos.inst.image_url=http://192.168.100.200:8080/ocp/rhcos.raw.gz coreos.inst.ignition_url=http://192.168.100.200:8080/ocp/bootstrap.ign
 ```
+
+![](/assets/ocp-bootstrap.png)
 
 Once the API and the config server are up go ahead with the initialization of the master nodes.
 
