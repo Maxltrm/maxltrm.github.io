@@ -421,6 +421,8 @@ Once the API and the config server are up go ahead with the initialization of th
 coreos.inst=yes coreos.inst.install_dev=sda coreos.inst.image_url=http://192.168.100.200:8080/ocp/rhcos.raw.gz coreos.inst.ignition_url=http://192.168.100.200:8080/ocp/master.ign
 ```
 
+![](/assets/ocp-master.png)
+
 #### Check if the bootstrap is complete
 
 ```
