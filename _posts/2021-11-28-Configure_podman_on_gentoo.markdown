@@ -34,7 +34,7 @@ unqualified-search-registries = ["registry.fedoraproject.org", "registry.access.
 
 ## Configure subuid and subgid
 
-Check that subuid and subgid are properly configured, my user was set as ```<username>:0:0``` so it wan not allowed to map any user ids from its namespace into child namespaces.
+Check that subuid and subgid are properly configured, my user was set as ```<username>:0:0``` so it was not allowed to map any user ids from its namespace into child namespaces.
 
 set subuid and subgid as follows:
 
