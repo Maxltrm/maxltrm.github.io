@@ -17,7 +17,7 @@ title: Max braindump
 #email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   I'm a technology enthusiast and a Linux nerd with a lot of interests and very little memory, so this is my brain dump.
-baseurl: "" # the subpath of your site, e.g. /blog
+#baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username:  Maxltrm
