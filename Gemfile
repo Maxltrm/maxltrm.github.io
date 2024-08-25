@@ -8,7 +8,7 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-##gem "jekyll", "~> 3.8.5"
+#gem "jekyll"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 ##gem "minima", "~> 2.0"
@@ -29,3 +29,5 @@ source "https://rubygems.org"
 ##gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
 gem 'github-pages', group: :jekyll_plugins
+gem 'jekyll-theme-yat'
+
