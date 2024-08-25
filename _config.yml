@@ -24,7 +24,7 @@ github_username:  Maxltrm
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-yat
+remote_theme: "jeffreytse/jekyll-theme-yat"
   #theme: minima
 plugins_dir:
   - jekyll-feed
