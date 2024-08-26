@@ -23,31 +23,31 @@ The subscription manager tools allows to:
 
 #### Register a system
 
-```
+```bash
 subscription-manager register --username=yourusername --password=yourpassword
 ```
 
 #### Show available subscriptions
 
-```
+```bash
 subscription-manager list --available | less
 ```
 
 #### Run the auto attach:
 
-```
+```bash
 subscription-manager attach --auto
 ```
 
 #### Show used subscritions
 
-```
+```bash
 subscription-manager list --consumed
 ```
 
 #### Unregister a system
 
-```
+```bash
 subscription-manager unregister
 ```
 
@@ -75,20 +75,20 @@ It has its own database of installed packages.
 
 #### Shows which package provided the indicated executable
 
-```
+```bash
 rpm -qf /usr/bin/vi
 vim-minimal-7.4.160-1.el7_3.1.x86_64
 ```
 
 #### Queries all packages that require the functionality of a package
 
-```
+```bash
 rpm -q --whatrequires <pkg_name>
 ```
 
 #### Shows which files were installed with the package
 
-```
+```bash
 rpm -ql vim-minimal
 /etc/virc
 /usr/bin/ex
@@ -107,14 +107,14 @@ rpm -ql vim-minimal
 
 #### Shows the configuration files of the installed package
 
-```
+```bash
 rpm -qc vim-minimal
 /etc/virc
 ```
 
 #### Shows the DOC files installed with the installed pakage
 
-```
+```bash
 rpm -qd vim-minimal
 /usr/share/man/man1/ex.1.gz
 /usr/share/man/man1/rvi.1.gz
@@ -127,7 +127,7 @@ rpm -qd vim-minimal
 
 #### Query all
 
-```
+```bash
 rpm   -qa
 
 rpm -qa |grep vim
@@ -139,7 +139,7 @@ vim-filesystem-7.4.160-1.el7_3.1.x86_64
 
 #### Show installation and uninstallation package scripts
 
-```
+```bash
 rpm -q --scripts httpd
 preinstall scriptlet (using /bin/sh):
 # Add the "apache" group and user
@@ -232,7 +232,7 @@ yum is a meta package manager, by connecting to repositories it download some in
 
 #### yum log path
 
-```
+```bash
 /var/log/yum.log
 ```
 
@@ -240,7 +240,7 @@ yum is a meta package manager, by connecting to repositories it download some in
 
 #### Show installed and available packages
 
-```
+```bash
 yum list httpd
 Installed Packages
 httpd.x86_64 2.4.6-45.el7.centos.4 @updates
@@ -250,19 +250,19 @@ httpd.x86_64 2.4.6-80.el7.centos base
 
 #### Search for packages by keyword present only in the name and in the summary
 
-```
+```bash
 yum search keyword
 ```
 
 #### Search for packages that have 'web server' in the name, summary and description field
 
-```
+```bash
 yum search all ‘web server’
 ```
 
 #### Provides detailed info about the httpd package, including the disk space required for installation
 
-```
+```bash
 yum info httpd
 
 Installed Packages
@@ -295,7 +295,7 @@ Description : The Apache HTTP Server is a powerful, efficient, and extensible
 
 #### Lists the packages that provide the specified feature or file
 
-```
+```bash
 yum provides pathname
 yum provides httpd
 yum provides /var/www/html
@@ -303,26 +303,26 @@ yum provides /var/www/html
 
 #### Show the files included in a package with repoquery
 
-```
+```bash
 repoquery -ql httpd
 ```
 
 #### Specify the repository
 
-```
+```bash
 repoquery -repoid=testlocal -ql httpd
 ```
 
 #### Install the indicated package including dependencies
 
-```
+```bash
 yum install packagename
 yum install httpd
 ```
 
 #### Get and install a new version of the indicated package, including dependencies
 
-```
+```bash
 yum update httpd
 ```
 
@@ -330,7 +330,7 @@ Generally the configuration files are kept, but they can be renamed if they are 
 
 #### Installs all relevant updates, or performs a system upgrade
 
-```
+```bash
 yum update
 ```
 
@@ -342,31 +342,31 @@ If it fails to boot from the new kernel, the old version is still available.
 
 #### lists installed and available versions
 
-```
+```bash
 yum list kernel
 ```
 
 #### Only updates the kernel and dependencies
 
-```
+```bash
 yum update kernel
 ```
 
 #### Update a system excluding specified package
 
-```
+```bash
 yum update --exclude=kernel*
 ```
 
 To make the exclusion permanent, edit the file /etc/yum.conf and add the string:
 
-```
+```bash
 exclude=kernel* redhat-release*
 ```
 
 #### Removes the indicated package and all the packages that have it as a dependency
 
-```
+```bash
 yum remove package
 ```
 
@@ -382,20 +382,20 @@ The packages or groups provided by a group can be mandatory, default or optional
 
 #### Shows installed and available groups
 
-```
+```bash
 yum group list
 yum grouplist
 ```
 
 Some groups are normally installed with environment groups, and are not shown.
 
-```
+```bash
 yum group list hidden
 ```
 
 #### Show group info and a list divided by mandatory, default, optional
 
-```
+```bash
 yum group info “Development Tools”
 yum groupinfo “Development Tools”
 ```
@@ -412,14 +412,14 @@ Some groups may have a symbol in front
 
 #### Install the group and the related groups or packages mandatory and default
 
-```
+```bash
 yum group install “Basic Web Server”
 yum groupinstall “Basic Web Server”
 ```
 
 #### Show transaction summary
 
-```
+```bash
 yum history
 
 ID | Command line | Date and time | Action(s) | Altered
@@ -434,13 +434,13 @@ ID | Command line | Date and time | Action(s) | Altered
 
 #### Show detailed info about a transaction
 
-```
+```bash
 yum history info 109
 ```
 
 #### Undo a transaction
 
-```
+```bash
 yum history undo 109
 ```
 
@@ -448,13 +448,13 @@ yum history undo 109
 
 #### view all available repositories
 
-```
+```bash
 yum repolist all
 ```
 
 #### enable the repository and update the file /etc/yum.repos.d/redhat.repo
 
-```
+```bash
 yum-config-manager --enable rhel-7-server-extras-rpms
 ```
 
@@ -464,7 +464,7 @@ yum-config-manager --enable rhel-7-server-extras-rpms
 2. createrepo /repolocal                (Create repomd (xml-rpm-metadata) repository)
 3. Create the configuration file under /etc/yum.repos.d
 
-```
+```bash
 vi repolocal.repo
 
 [repolocal]
@@ -476,7 +476,7 @@ gpgcheck=0
 
 #### Third-party repositories
 
-```
+```bash
 yum-config-manager --add-repo=“http://dl.fedoraproject.org/pub/epel/7/x86_64/”
 ```
 
@@ -484,7 +484,7 @@ Some repositories provide a configuration file (.repo) and the GPG public key as
 
 An example of this is the EPEL volunteer project Extras Packages for Enterprise Linux, which provides software not supported by Redhat but compatible with Red Hat Enterprise Linux.
 
-```
+```bash
 [EPEL]
 name=EPEL Fedora 7
 baseurl=http://dl.fedoraproject.org/pub/epel/7/x86_64/
@@ -495,7 +495,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
 
 #### Import the key under /etc/pki/rpm-gpg/
 
-```
+```bash
 rpm --import  http://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
 ```
 
@@ -503,11 +503,11 @@ Install the GPG key RPM before installing signed packages, so that it can be ver
 
 Otherwise yum will give a missing key error message (the --nogpgcheck option can be used to ignore missing keys).
 
-```
+```bash
 yum install http://dl.fedoraproject.org/pub/epel/7/x86_64/Packages/e/epel-release-7-11.noarch.rpm
 ```
 
-```
+```bash
 yum localinstall  curl-7.29.0-46.el7.x86_64.rpm            (installa il package scaricato in locale senza fare riferimento ai repository; ma si rivolge ai repository per le dipendenze).
 ```
 
@@ -515,12 +515,12 @@ Often the configuration file contains references to different repositories; any 
 
 #### Disable/Enable a repository
 
-```
+```bash
 yum-config-manager --enable|disable <nomerepository> 
 ```
 
 Or temporarily with the yum --enablerepo command
 
-```
+```bash
 yum search gpg --enablerepo=”EPEL Fedora 7″
 ```
