@@ -10,7 +10,7 @@ categories: queues notes
 
 #### Install RabbitMQ on centos
 
-```
+```bash
 # yum update -y
 # yum install wget erlang socat -y
 # wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.10/rabbitmq-server-3.6.10-1.el7.noarch.rpm
@@ -18,7 +18,7 @@ categories: queues notes
 
 #### Enable Web UI:
 
-```
+```bash
 rabbitmq-plugins enable rabbitmq_management
 
 rabbitmq-plugins list
@@ -58,12 +58,12 @@ Configured: E = explicitly enabled; e = implicitly enabled
 
 #### Configure firewalld
 
-```
+```bash
 firewall-cmd --add-port 15672/tcp --permanent
 ```
 #### Create a user allowed to access the web UI
 
-```
+```bash
 rabbitmqctl add_user max max
 rabbitmqctl set_user_tags max administrator
 rabbitmqctl set_permissions -p / max ".*" ".*" ".*"
@@ -87,6 +87,6 @@ body='Un altro messaggio')
 
 #### Show queues
 
-```
+```bash
 rabbitmqctl list_queues
 ```
