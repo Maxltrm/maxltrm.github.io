@@ -25,11 +25,19 @@ github_username:  Maxltrm
 # Build settings
 markdown: kramdown
 remote_theme: "jeffreytse/jekyll-theme-yat"
-  #theme: minima
-plugins_dir:
-  - jekyll-feed
+
+#plugins_dir:
+#  - jekyll-feed
   
 google_analytics: G-SEEGDL37Y6
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-spaceship
+  
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
