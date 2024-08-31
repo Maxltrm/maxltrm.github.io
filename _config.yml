@@ -28,7 +28,8 @@ remote_theme: "jeffreytse/jekyll-theme-yat"
   #theme: minima
 plugins_dir:
   - jekyll-feed
-
+  
+google_analytics: G-SEEGDL37Y6
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
