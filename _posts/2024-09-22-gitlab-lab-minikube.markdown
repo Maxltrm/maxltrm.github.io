@@ -9,7 +9,7 @@ categories: notes how-to gitlab homelab kubernetes devops
 
 ### Introduction
 
-I need to test some gitlab features such as as storing terraform modules and status files, and I want to experiment with [Atlantis](https://www.runatlantis.io/){:target="_blank"}.
+I need to test some gitlab features such as storing terraform modules and state files, and I want to experiment with [Atlantis](https://www.runatlantis.io/){:target="_blank"}.
 
 I mostly followed the Gitlab official documentation but I had to take some additional steps so I am taking the opportunity to write a quickstart guide so that I can quickly spin up a gitlab Lab environment if I need it again in the future.
 
