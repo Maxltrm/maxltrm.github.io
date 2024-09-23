@@ -5,13 +5,13 @@ date:   2024-09-22 15:48:54 +0100
 categories: notes how-to gitlab homelab kubernetes devops
 ---
 
-## **Gitlab Lab on Minikube Quickstart guide**
+## **Gitlab on Minikube Quickstart guide**
 
 ### Introduction
 
 I need to test some gitlab features such as as storing terraform modules and status files, and I want to experiment with [Atlantis](https://www.runatlantis.io/){:target="_blank"}.
 
-I followed mostly followed the Gitlab official documentation but I had to take some additional steps so I am taking the opportunity to write a quickstart guide so that I can quickly spin up a gitlab Lab environment if I need it again in the future.
+I mostly followed the Gitlab official documentation but I had to take some additional steps so I am taking the opportunity to write a quickstart guide so that I can quickly spin up a gitlab Lab environment if I need it again in the future.
 
 ### Create minikube cluster
 
@@ -79,4 +79,4 @@ kubectl get secret gitlab-wildcard-tls-ca -ojsonpath='{.data.cfssl_ca}' | base64
 
 ### Access your instance
 
-Your instance should now be accessible locally via gitlab.<minikube ip>.nip.io.
+Your instance should now be accessible locally via **https://$(minikube ip).nip.io**.
