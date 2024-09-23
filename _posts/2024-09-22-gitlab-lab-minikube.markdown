@@ -57,6 +57,9 @@ EOF
 ### Install Gitlab
 
 ```bash
+git clone https://gitlab.com/gitlab-org/charts/gitlab.git
+cd gitlab
+helm dependency update
 helm upgrade --install  gitlab . --timeout 600s  -f https://gitlab.com/gitlab-org/charts/gitlab/raw/master/examples/values-minikube-minimum.yaml  --set global.hosts.domain=$(minikube ip).nip.io  --set global.hosts.externalIP=$(minikube ip)  --post-renderer ./hook.sh  --set global.appConfig.terraformState.enabled=true --create-namespace --namespace gitlab
 ```
 
