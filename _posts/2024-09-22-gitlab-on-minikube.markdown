@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Gitlab lab on minikube quickstart"
+title:  "Gitlab on minikube quickstart"
 date:   2024-09-22 15:48:54 +0100
 categories: notes how-to gitlab homelab kubernetes devops
 ---
@@ -60,7 +60,15 @@ EOF
 git clone https://gitlab.com/gitlab-org/charts/gitlab.git
 cd gitlab
 helm dependency update
-helm upgrade --install  gitlab . --timeout 600s  -f https://gitlab.com/gitlab-org/charts/gitlab/raw/master/examples/values-minikube-minimum.yaml  --set global.hosts.domain=$(minikube ip).nip.io  --set global.hosts.externalIP=$(minikube ip)  --post-renderer ./hook.sh  --set global.appConfig.terraformState.enabled=true --create-namespace --namespace gitlab
+
+helm upgrade --install gitlab . -f https://gitlab.com/gitlab-org/charts/gitlab/raw/master/examples/values-minikube-minimum.yaml \
+ --timeout 600s \
+ --set global.hosts.domain=$(minikube ip).nip.io \
+ --set global.hosts.externalIP=$(minikube ip) \
+ --set global.appConfig.terraformState.enabled=true \
+ --post-renderer ./hook.sh \
+ --create-namespace \
+ --namespace gitlab
 ```
 
 ### Update hosts file
