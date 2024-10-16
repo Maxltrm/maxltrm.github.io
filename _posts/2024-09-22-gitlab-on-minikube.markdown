@@ -21,7 +21,11 @@ minikube start --cpus 4 --memory 10240 --driver docker --addons ingress
 
 ### Create kustomizations
 
-When I was setting up this lab I had some problems with pvc permissions, pods that needed a pvc would not start giving permission denied errors, searching on github I found the following closed but unresolved issue: https://github.com/kubernetes/minikube/issues/1990 so I decided to work around the problem and run the statefulsets as user 0. Don't do this in prod!
+When I was setting up this lab I had some problems with pvc permissions, pods that needed a pvc would not start giving permission denied errors.
+
+Searching on github I found the following closed but unresolved [issue](https://github.com/kubernetes/minikube/issues/1990){:target="_blank"}.
+
+So I decided to work around the problem and run the statefulsets as user 0. **Don't do it in prod!**
 
 I decided to do it using helm post-renderer and kustomize but it can probably be done via helm values as well.
 
@@ -79,14 +83,16 @@ echo $(printf $(minikube ip) && kubectl get ingress -n gitlab --no-headers=true 
 
 ### Trust certificates root CA
 
-Export the root CA and trust it on your system:
+Export the root CA:
+
+```bash
+kubectl get -n gitlab secret gitlab-wildcard-tls-ca -ojsonpath='{.data.cfssl_ca}' | base64 --decode > gitlab.192.168.49.2.nip.io.ca.pem
+```
+
+Trust it on your system:
 
 1. [Fedora](https://docs.fedoraproject.org/en-US/quick-docs/using-shared-system-certificates/){:target="_blank"}
 1. [Ubuntu](https://ubuntu.com/server/docs/install-a-root-ca-certificate-in-the-trust-store){:target="_blank"}
-
-```bash
-kubectl get secret gitlab-wildcard-tls-ca -ojsonpath='{.data.cfssl_ca}' | base64 --decode > gitlab.192.168.49.2.nip.io.ca.pem
-```
 
 ### Access your instance
 
