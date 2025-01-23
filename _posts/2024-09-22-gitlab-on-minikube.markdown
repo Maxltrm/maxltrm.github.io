@@ -67,6 +67,7 @@ helm upgrade --install gitlab . -f https://gitlab.com/gitlab-org/charts/gitlab/r
  --set global.appConfig.terraformState.enabled=true \
  --create-namespace \
  --namespace gitlab
+```
 
 ### Update hosts file
 
