@@ -19,6 +19,8 @@ I mostly followed the Gitlab official documentation but I had to take some addit
 minikube start --cpus 4 --memory 10240 --driver docker --addons ingress
 ```
 
+> **_NOTE:_** The following kustomization is no longer required with newer minikube versions
+<del><p>
 ### Create kustomizations
 
 When I was setting up this lab I had some problems with pvc permissions, pods that needed a pvc would not start giving permission denied errors.
@@ -56,6 +58,7 @@ patches:
         path: /spec/template/spec/containers/0/securityContext/runAsUser
         value: 0
 EOF
+</p></del>
 ```
 
 ### Install Gitlab
@@ -70,10 +73,8 @@ helm upgrade --install gitlab . -f https://gitlab.com/gitlab-org/charts/gitlab/r
  --set global.hosts.domain=$(minikube ip).nip.io \
  --set global.hosts.externalIP=$(minikube ip) \
  --set global.appConfig.terraformState.enabled=true \
- --post-renderer ./hook.sh \
  --create-namespace \
  --namespace gitlab
-```
 
 ### Update hosts file
 
@@ -93,6 +94,12 @@ Trust it on your system:
 
 1. [Fedora](https://docs.fedoraproject.org/en-US/quick-docs/using-shared-system-certificates/){:target="_blank"}
 1. [Ubuntu](https://ubuntu.com/server/docs/install-a-root-ca-certificate-in-the-trust-store){:target="_blank"}
+
+### Retrieve inital root password
+
+```bash
+kubectl get secret gitlab-gitlab-initial-root-password -ojsonpath='{.data.password}' -n gitlab | base64 -d ; echo
+```
 
 ### Access your instance
 
