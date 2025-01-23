@@ -26,7 +26,41 @@ git clone https://gitlab.com/gitlab-org/charts/gitlab.git
 cd gitlab
 helm dependency update
 
-helm upgrade --install gitlab . -f https://gitlab.com/gitlab-org/charts/gitlab/raw/master/examples/values-minikube-minimum.yaml \
+tee runners.yml <<EOF
+gitlab-runner:
+  install: true
+  certsSecretName: gitlab-wildcard-tls-chain
+  rbac:
+    create: true
+  runners:
+    locked: false
+    # Set secret to an arbitrary value because the runner chart renders the gitlab-runner.secret template only if it is not empty.
+    # The parent/GitLab chart overrides the template to render the actual secret name.
+    secret: "nonempty"
+    config: |
+      [[runners]]
+        [runners.kubernetes]
+        image = "ubuntu:22.04"
+        {{- if .Values.global.minio.enabled }}
+        [runners.cache]
+          Type = "s3"
+          Path = "gitlab-runner"
+          Shared = true
+          [runners.cache.s3]
+            ServerAddress = {{ include "gitlab-runner.cache-tpl.s3ServerAddress" . }}
+            BucketName = "runner-cache"
+            BucketLocation = "us-east-1"
+            Insecure = false
+        {{ end }}
+  podAnnotations:
+    gitlab.com/prometheus_scrape: "true"
+    gitlab.com/prometheus_port: 9252
+  podSecurityContext:
+    seccompProfile:
+      type: "RuntimeDefault"
+EOF
+
+helm upgrade --install gitlab . -f https://gitlab.com/gitlab-org/charts/gitlab/raw/master/examples/values-minikube-minimum.yaml -f runners.yml \
  --timeout 600s \
  --set global.hosts.domain=$(minikube ip).nip.io \
  --set global.hosts.externalIP=$(minikube ip) \
@@ -50,8 +84,14 @@ kubectl get -n gitlab secret gitlab-wildcard-tls-ca -ojsonpath='{.data.cfssl_ca}
 
 Trust it on your system:
 
-1. [Fedora](https://docs.fedoraproject.org/en-US/quick-docs/using-shared-system-certificates/){:target="_blank"}
-1. [Ubuntu](https://ubuntu.com/server/docs/install-a-root-ca-certificate-in-the-trust-store){:target="_blank"}
+[Fedora](https://docs.fedoraproject.org/en-US/quick-docs/using-shared-system-certificates/){:target="_blank"}
+
+```bash
+sudo mv gitlab.192.168.49.2.nip.io.ca.pem /etc/pki/ca-trust/source/anchors/
+sudo update-ca-trust
+```
+
+[Ubuntu](https://ubuntu.com/server/docs/install-a-root-ca-certificate-in-the-trust-store){:target="_blank"}
 
 ### Retrieve inital root password
 
