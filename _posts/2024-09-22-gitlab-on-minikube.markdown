@@ -19,8 +19,10 @@ I mostly followed the Gitlab official documentation but I had to take some addit
 minikube start --cpus 4 --memory 10240 --driver docker --addons ingress
 ```
 
+
 > **_NOTE:_** The following kustomization is no longer required with newer minikube versions
-<del><p>
+
+<del>
 ### Create kustomizations
 
 When I was setting up this lab I had some problems with pvc permissions, pods that needed a pvc would not start giving permission denied errors.
@@ -58,8 +60,8 @@ patches:
         path: /spec/template/spec/containers/0/securityContext/runAsUser
         value: 0
 EOF
-</p></del>
 ```
+</del>
 
 ### Install Gitlab
 
