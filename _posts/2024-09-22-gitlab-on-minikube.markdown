@@ -87,3 +87,8 @@ kubectl get secret gitlab-gitlab-initial-root-password -ojsonpath='{.data.passwo
 ### Access your instance
 
 Your instance should now be accessible locally via **https://$(minikube ip).nip.io**.
+
+```bash
+echo https://$(minikube ip).nip.io
+https://192.168.49.2.nip.io
+```
