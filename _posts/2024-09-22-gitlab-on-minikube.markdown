@@ -19,50 +19,6 @@ I mostly followed the Gitlab official documentation but I had to take some addit
 minikube start --cpus 4 --memory 10240 --driver docker --addons ingress
 ```
 
-
-> **_NOTE:_** The following kustomization is no longer required with newer minikube versions
-
-<del>
-### Create kustomizations
-
-When I was setting up this lab I had some problems with pvc permissions, pods that needed a pvc would not start giving permission denied errors.
-
-Searching on github I found the following closed but unresolved [issue](https://github.com/kubernetes/minikube/issues/1990){:target="_blank"}.
-
-So I decided to work around the problem and run the statefulsets as user 0. **Don't do it in prod!**
-
-I decided to do it using helm post-renderer and kustomize but it can probably be done via helm values as well.
-
-1. Create a post-renderer script:
-
-```bash
-tee hook.sh <<EOF
-#!/bin/bash
-cat <&0 > resources.yaml
-kubectl kustomize
-rm resources.yaml
-EOF
-```
-
-2. Create a kustomization file:
-
-```bash
-tee kustomizations.yaml << EOF
-kind: Kustomization
-resources:
-  - resources.yaml
-
-patches:
-  - target:
-      kind: StatefulSet
-    patch: |-
-      - op: replace
-        path: /spec/template/spec/containers/0/securityContext/runAsUser
-        value: 0
-EOF
-```
-</del>
-
 ### Install Gitlab
 
 ```bash
