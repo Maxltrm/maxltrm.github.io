@@ -34,27 +34,11 @@ gitlab-runner:
     create: true
   runners:
     locked: false
-    # Set secret to an arbitrary value because the runner chart renders the gitlab-runner.secret template only if it is not empty.
-    # The parent/GitLab chart overrides the template to render the actual secret name.
     secret: "nonempty"
     config: |
       [[runners]]
         [runners.kubernetes]
         image = "ubuntu:22.04"
-        {{- if .Values.global.minio.enabled }}
-        [runners.cache]
-          Type = "s3"
-          Path = "gitlab-runner"
-          Shared = true
-          [runners.cache.s3]
-            ServerAddress = {{ include "gitlab-runner.cache-tpl.s3ServerAddress" . }}
-            BucketName = "runner-cache"
-            BucketLocation = "us-east-1"
-            Insecure = false
-        {{ end }}
-  podAnnotations:
-    gitlab.com/prometheus_scrape: "true"
-    gitlab.com/prometheus_port: 9252
   podSecurityContext:
     seccompProfile:
       type: "RuntimeDefault"
