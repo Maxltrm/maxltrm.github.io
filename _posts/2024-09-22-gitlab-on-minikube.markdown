@@ -3,6 +3,7 @@ layout: post
 title:  "Gitlab on minikube quickstart"
 date:   2024-09-22 15:48:54 +0100
 categories: notes how-to gitlab homelab kubernetes devops
+comments: true
 ---
 
 ## **Gitlab on Minikube Quickstart guide**
