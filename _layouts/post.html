@@ -48,7 +48,6 @@ sidebar:
     {%- assign result = hidden | where_exp: "item", "item == 'comments'" -%}
     {%- if result.size == 0 -%}
     <div class="post-comments">
-      {%- if page.comments != false -%}
         <script src="https://utteranc.es/client.js"
           repo="{{ site.utterances.repo }}"
           issue-term="{{ site.utterances.issue_term | default: 'pathname' }}"
@@ -57,7 +56,6 @@ sidebar:
 	  follow_site_theme="{{ site.utterances.follow_site_theme }}"
           async>
         </script>
-      {%- endif -%}
     </div>
     {%- endif -%}
 
