@@ -38,6 +38,12 @@ plugins:
   - jekyll-paginate
   - jekyll-spaceship
 
+defaults:
+  - scope:
+      path: ""  # Applies to all pages
+    values:
+      comments: true
+
 utterances:
   repo: "Maxltrm/maxltrm.github.io"
   issue_term: "pathname"
