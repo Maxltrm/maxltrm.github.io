@@ -49,19 +49,14 @@ sidebar:
     {%- if result.size == 0 -%}
     <div class="post-comments">
       {%- if page.comments != false -%}
-
-      {%- if site.disqus.shortname -%}
-      {%- include extensions/comments/disqus.html -%}
-      {%- endif -%}
-
-      {%- if site.gitment.username -%}
-      {%- include extensions/comments/gitment.html -%}
-      {%- endif -%}
-
-      {%- if site.utterances.repo -%}
-      {%- include extensions/comments/utterances.html -%}
-      {%- endif -%}
-
+        <script src="https://utteranc.es/client.js"
+          repo="{{ site.utterances.repo }}"
+          issue-term="{{ site.utterances.issue_term | default: 'pathname' }}"
+          theme="{{ site.utterances.theme | default: 'github-light' }}"
+          crossorigin="anonymous"
+	  follow_site_theme="{{ site.utterances.follow_site_theme }}"
+          async>
+        </script>
       {%- endif -%}
     </div>
     {%- endif -%}
