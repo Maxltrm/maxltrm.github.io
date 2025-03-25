@@ -37,6 +37,14 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-spaceship
+
+comments:
+  provider: utterances
+
+utterances:
+  repo: "Maxltrm/maxltrm.github.io"
+  issue_term: "pathname"
+  theme: "preferred-color-scheme"
   
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
