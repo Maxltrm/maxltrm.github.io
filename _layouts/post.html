@@ -14,8 +14,7 @@ sidebar:
 
     {%- include views/article.html -%}
 
-    {%- assign result = hidden | where_exp: "item", "item == 'navigator'" -%}
-    {%- if result.size == 0 -%}
+    {%- if page.nav-post -%}
     <div class="post-nav">
       {%- if page.previous -%}
         <a class="previous" href="{{ page.previous.url | relative_url }}" title="{{
@@ -32,8 +31,7 @@ sidebar:
     </div>
     {%- endif -%}
 
-    {%- assign result = hidden | where_exp: "item", "item == 'related_posts'" -%}
-    {%- if result.size == 0 -%}
+    {%- if page.related-posts -%}
     <div class="post-related">
       <div>Related Articles</div>
       <ul>
@@ -45,8 +43,7 @@ sidebar:
     </div>
     {%- endif -%}
 
-    {%- assign result = hidden | where_exp: "item", "item == 'comments'" -%}
-    {%- if result.size == 0 -%}
+    {%- if page.comments -%}
     <div class="post-comments">
         <script src="https://utteranc.es/client.js"
           repo="{{ site.utterances.repo }}"
