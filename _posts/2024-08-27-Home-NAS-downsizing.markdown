@@ -2,7 +2,7 @@
 layout: post
 title:  "Home NAS downsizing"
 date:   2024-08-27 12:50:54 +0100
-categories: notes how-to raspberry-pi
+categories: how-to linux stories mdadm
 comments: true
 #nav-post: true
 #related-posts: true
