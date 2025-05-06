@@ -8,9 +8,12 @@ comments: true
 #related-posts: true
 ---
 
-## **LLM inference on old AMD Radeon video cards***
+## **Inference on AMD Radeon RX80**
 
 ### Introduction
+
+This is a quick guide to running LLM inference on older AMD GPUs like the RX580 8GB using llama.cpp. With Vulkan support enabled, you can get models like Mistral 7B. It’s a neat option if you already have an old card lying around, but not really worth buying one just for this as performance is limited, and newer hardware will do much better.
+
 
 ```bash
 cd ~ && cit clone https://github.com/ggerganov/llama.cpp && cd llama.cpp
