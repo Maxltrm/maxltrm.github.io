@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Inference on AMD Radeon RX80"
+title:  "Inference on AMD Radeon RX580"
 date:   2025-05-6 19:45:00 +0100
 categories: notes how-to homelab AI LLM
 comments: true
@@ -8,7 +8,7 @@ comments: true
 #related-posts: true
 ---
 
-## **Inference on AMD Radeon RX80**
+## **Inference on AMD Radeon RX580**
 
 ### Introduction
 
